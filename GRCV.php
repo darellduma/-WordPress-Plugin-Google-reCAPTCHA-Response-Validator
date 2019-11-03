@@ -60,7 +60,7 @@
                                 jQuery('#submit').val('PLEASE WAIT...');
                                 jQuery('#submit').attr('disabled',true);
                                 let data = {
-                                    action  : 'test_token',
+                                    action  : 'test_response',
                                     token   : response
                                 };
                                 jQuery.ajax({
@@ -95,7 +95,7 @@
                                 jQuery('#submit').val('PLEASE WAIT...');
                                 jQuery('#submit').attr('disabled',true);
                                 let data = {
-                                    action  : 'test_token',
+                                    action  : 'test_response',
                                     token   : token
                                 };
                                 jQuery.ajax({
@@ -116,7 +116,6 @@
                                     alert(`${xhr.code} ${xhr.status}`);
                                 }
                                 });
-                                // alert('thanks ' + document.getElementById('field').value);
                             }
 
                             function validate(event) {
@@ -130,8 +129,6 @@
                             }
                         </script>
                         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-                        <!-- invisible -->
-                        <!-- Name: (required) <input id="field" name="field"> -->
                         <h3>Google reCAPTCHA Response Test</h3>
                         <h4>Instructions:</h4>
                         <p>Click the submit button then answer the challenges</p>
@@ -169,14 +166,6 @@
                     plugin_dir_url(__FILE__) . 'images/grecaptcha.png',
                     20
                 );
-
-                // add_submenu_page(
-                //     plugin_dir_path(__FILE__) . 'admin/settings.php',
-                //     'Test Token',
-                //     'Test token',
-                //     'manage_options',
-                //     plugin_dir_path(__FILE__) . 'admin/test_token.php',
-                // );
             }
 
             function initialize_plugin(){
@@ -235,7 +224,7 @@
                 return $secret;
             }
 
-            function verify_token($token){
+            function verify_response($token){
                 $secret = $this->get_secret_from_db();
                 $success = false;
                 if(!$secret){
@@ -294,14 +283,14 @@
                 }
             }
 
-            function test_token(){
+            function test_response(){
                 $data = json_decode(file_get_contents('php://input'),true);
                 $token = sanitize_text_field($_POST['token']);
                 if(!$token){
                     echo json_encode(['success'=>false,'message'=>'Empty Token']);
                     wp_die();
                 }
-                $result = $this->verify_token($token);
+                $result = $this->verify_response($token);
                 echo json_encode($result);
                 wp_die();
             }
@@ -329,8 +318,8 @@
 
     add_action('wp_ajax_keep_secret',[$grcv,'keep_secret']);
     add_action('wp_ajax_get_secret',[$grcv,'get_secret']);
-    add_action('wp_ajax_test_token',[$grcv,'test_token']);
-    add_action('wp_ajax_nopriv_test_token',[$grcv,'test_token']);
+    add_action('wp_ajax_test_response',[$grcv,'test_response']);
+    add_action('wp_ajax_nopriv_test_response',[$grcv,'test_response']);
     add_action('wp_ajax_nopriv_get_sitekey',[$grcv,'get_sitekey']);
 
 ?>
