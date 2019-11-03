@@ -9,7 +9,7 @@ A WordPress Plugin for Google ReCAPTCHA Response Validation
 5. To test your keys, create a new page and insert [test_response] as shortcode.
 6. To use it as a validator, 
     
-    6.a. Include it in your custom plugin (yoursite/wp-content-plugins/GRCV/GRCV.php
+    6.a. Include it in your custom plugin (yoursite/wp-content-plugins/GRCV/GRCV.php)
     
     6.b. Invoke GRCV::verify_response($token) method and place the result in a variable.
   
