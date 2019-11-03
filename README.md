@@ -16,7 +16,9 @@ A WordPress Plugin for Google ReCAPTCHA Response Validation
     $result = GRCV::verify_token($response);
   ```
   Return:
+    
     success   : (bool)true|false
+    
     message   : (string)'Response is Valid!' if success, list of errors if unsuccessful.
 
 Report Issues here: https://github.com/darellduma/-WordPress-Plugin-Google-reCAPTCHA-Response-Validator/issues
