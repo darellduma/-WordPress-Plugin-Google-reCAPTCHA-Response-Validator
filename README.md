@@ -1,6 +1,10 @@
 # [WordPress Plugin]Google-reCAPTCHA-Response-Validator
 A WordPress Plugin for Google ReCAPTCHA Response Validation
 
+## Before You Use
+
+This plugin is recommended for WordPress developers who wants to validate Google reCAPTCHA response from the front end. 
+
 ## How To Use
 1. Download the entire folder.
 2. Paste it in your plugins directory file.
