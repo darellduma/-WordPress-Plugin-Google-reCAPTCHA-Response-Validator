@@ -11,12 +11,12 @@ A WordPress Plugin for Google ReCAPTCHA Response Validation
     
     6.a. Include it in your custom plugin (yoursite/wp-content-plugins/GRCV/GRCV.php)
     
-    6.b. Invoke GRCV::verify_response($token) method and place the result in a variable.
+    6.b. Invoke GRCV::verify_response($response) method and place the result in a variable.
   
   Example
   ```
     include_once(plugin_dir_path(__FILE__) . '../GRCV/GRCV.php');
-    $result = GRCV::verify_token($response);
+    $result = GRCV::verify_response($response);
   ```
   Return:
     
