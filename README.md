@@ -7,6 +7,8 @@ This plugin is on early beta phase. Do not use this on your live site.
 
 This plugin is recommended for WordPress developers who wants to validate Google reCAPTCHA response from the front end. 
 
+Google doesn't accept localhost as domain so use the loopback address (127.0.0.1) instead
+
 ## How To Use
 1. Download the entire folder.
 2. Paste it in your plugins directory file.
