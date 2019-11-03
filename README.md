@@ -29,4 +29,5 @@ https://github.com/darellduma/-WordPress-Plugin-Google-reCAPTCHA-Response-Valida
 
 ## Useful Links:
 How to Integrate Google reCAPTCHA on the front end: https://developers.google.com/recaptcha/docs/display
+
 Information on Verifying the User's Response: https://developers.google.com/recaptcha/docs/display
