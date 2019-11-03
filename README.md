@@ -19,7 +19,7 @@ Google doesn't accept localhost as domain so use the loopback address (127.0.0.1
     
     6.a. Include it in your custom plugin (yoursite/wp-content-plugins/GRCV/GRCV.php)
     
-    6.b. Invoke GRCV::verify_response($response) method and place the result in a variable.
+    6.b. Invoke GRCV::verify_response($response) method and place the result in a variable. (Namespacing recommended)
   
   Example
   ```
