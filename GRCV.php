@@ -1,10 +1,26 @@
 <?php
     /*
-        Plugin Name:    Google reCAPTCHA Validator
-        Description:    A small plugin that validates your Google reCAPTCHA token sent by the user from the front end.
+        Plugin Name:    Google reCAPTCHA Response Validator
+        Description:    A small plugin that validates your Google reCAPTCHA response sent by the user from the front end.
         Author:         Darell N. Duma
         Author URI:     darellduma@gmail.com
         Version:        1.0.0
+        License:        GPL v2 or later
+        License URI:    https://www.gnu.org/licenses/gpl-2.0.html
+        Text Domain:    google-recaptcha-response-validator
+
+        Google reCAPTCHA Response Validator is free software: you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by
+        the Free Software Foundation, either version 2 of the License, or
+        any later version.
+        
+        Google reCAPTCHA Response Validator is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+        GNU General Public License for more details.
+        
+        You should have received a copy of the GNU General Public License
+        along with Google reCAPTCHA Response Validator. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
     */
 
     defined('ABSPATH') or die('You are not authorized to access this file');
@@ -248,7 +264,7 @@
                         $message .= $this->get_error_description($error) . "\n";
                     }
                 }
-                echo json_encode(['success'=>$result->success,'message'=>$message]);
+                return ['success'=>$result->success,'message'=>$message];
                 wp_die();
             }
 
@@ -285,7 +301,9 @@
                     echo json_encode(['success'=>false,'message'=>'Empty Token']);
                     wp_die();
                 }
-                $this->verify_token($token);
+                $result = $this->verify_token($token);
+                echo json_encode($result);
+                wp_die();
             }
 
             function retrieve_sitekey(){
